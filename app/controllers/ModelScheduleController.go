@@ -12,7 +12,7 @@ import (
 
 type ModelScheduleController interface {
 	All(context echo.Context) error
-	FindByID(context echo.Context) error
+	FindByModel(context echo.Context) error
 	Insert(context echo.Context) error
 	Update(context echo.Context) error
 	Delete(context echo.Context) error
@@ -34,8 +34,8 @@ func (c *modelScheduleController) All(context echo.Context) error {
 	return context.JSON(http.StatusOK, res)
 }
 
-func (c *modelScheduleController) FindByID(context echo.Context) error {
-	id := context.Param("id")
+func (c *modelScheduleController) FindByModel(context echo.Context) error {
+	id := context.Param("model_id")
 	var modelSchedule models.ModelSchedule = c.modelScheduleService.FindByModel(id)
 	if (modelSchedule == models.ModelSchedule{}) {
 		res := helpers.BuildErrorResponse("Data not found", "No data with given id", helpers.EmptyObj{})

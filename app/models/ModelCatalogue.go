@@ -7,7 +7,7 @@ import (
 )
 
 type ModelCatalogue struct {
-	ID          int64          `json:"id" gorm:"uniqueIndex;not null"`
+	ID          uint           `json:"id" gorm:"primaryKey"`
 	ModelName   string         `json:"model_name" gorm:"not null"`
 	ImageUrl    string         `json:"image_url" gorm:"not null"`
 	Description string         `json:"description" gorm:"not null"`

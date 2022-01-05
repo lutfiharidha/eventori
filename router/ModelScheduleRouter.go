@@ -18,11 +18,11 @@ var (
 
 func ModelScheduleRoute(route *echo.Echo) {
 
-	modelScheduleRoutes := route.Group("schedules")
+	modelScheduleRoutes := route.Group("models/schedules")
 	{
 		modelScheduleRoutes.GET("/list", modelScheduleController.All)
 		modelScheduleRoutes.POST("/create", modelScheduleController.Insert)
-		modelScheduleRoutes.GET("/:id", modelScheduleController.FindByID)
+		modelScheduleRoutes.GET("/:model_id", modelScheduleController.FindByModel)
 		modelScheduleRoutes.PATCH("/:id", modelScheduleController.Update)
 		modelScheduleRoutes.DELETE("/:id", modelScheduleController.Delete)
 	}
